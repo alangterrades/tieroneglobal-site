@@ -394,6 +394,100 @@
     .footer a{color:rgba(244,244,244,.72)}
     .footer a:hover{color:rgba(244,244,244,.92)}
   </style>
+  /* ===== Clean Institutional Theme (Band Layout) ===== */
+
+/* Default to light site */
+body{
+  background:#f6f5f2; /* warm off-white */
+  color:#111;
+}
+
+/* Make paragraphs readable on light */
+p{ color: rgba(17,17,17,.72); font-weight: 300; }
+
+/* Replace dark topbar with a clean light header */
+.topbar{
+  background: rgba(246,245,242,.92);
+  border-bottom: 1px solid rgba(0,0,0,.07);
+  backdrop-filter: blur(10px);
+}
+
+/* Brand sub text for light header */
+.brand .sub{ color: rgba(0,0,0,.55); }
+
+/* Nav link colors on light */
+.nav a{ color: rgba(0,0,0,.70); }
+.nav a:hover{ background: rgba(0,0,0,.04); }
+.nav a.active{
+  color:#000;
+  border-color: rgba(159,127,46,.35);
+  background: rgba(159,127,46,.10);
+}
+
+/* Hide prototype badge always (or delete it in HTML) */
+.tag{ display:none !important; }
+
+/* Bands (light / dark sections) */
+.band{
+  border-radius: 22px;
+  overflow: hidden;
+  margin: 22px 0;
+}
+
+/* Light band */
+.band.light{
+  background:#f6f5f2;
+  padding: 40px 0;
+  color:#111;
+}
+.band.light .kicker{ color: rgba(159,127,46,.95); }
+.band.light p{ color: rgba(17,17,17,.72); }
+
+/* Dark band */
+.band.dark{
+  background:
+    radial-gradient(1200px 700px at 50% 20%, rgba(199,163,71,.12), transparent 60%),
+    linear-gradient(180deg,#0f1113,#0b0c0d);
+  padding: 56px 0;
+  color: var(--text);
+}
+.band.dark p{ color: rgba(244,244,244,.78); }
+
+/* Cards: lighter & cleaner on light bands */
+.card{
+  background: rgba(255,255,255,.78);
+  border: 1px solid rgba(0,0,0,.08);
+  box-shadow: 0 10px 28px rgba(0,0,0,.08);
+}
+
+/* Cards inside dark bands: glassy */
+.band.dark .card{
+  background: rgba(20,22,24,.55);
+  border: 1px solid rgba(255,255,255,.08);
+  box-shadow: 0 16px 44px rgba(0,0,0,.45);
+}
+
+/* Tiles: lighter on light bands */
+.tile{
+  background: rgba(255,255,255,.86);
+  border: 1px solid rgba(0,0,0,.08);
+}
+.band.dark .tile{
+  background: rgba(0,0,0,.18);
+  border: 1px solid rgba(255,255,255,.08);
+}
+
+/* Rule: subtle on light, gold on dark */
+.rule{
+  background: linear-gradient(90deg, transparent, rgba(0,0,0,.12), transparent);
+}
+.band.dark .rule{
+  background: linear-gradient(90deg, transparent, var(--line), transparent);
+}
+
+/* Kill “prototype-y” hero effects */
+.gridlines{ display:none !important; }
+.tower{ display:none !important; }
 </head>
 <body>
   <header class="topbar">
