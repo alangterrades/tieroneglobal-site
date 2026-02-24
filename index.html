@@ -4,17 +4,12 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="theme-color" content="#0b0c0d" />
-  <meta name="description" content="Tier One Global — Institutional Orientation. Strategic participation across real assets, mining, metals, defense-aligned engagements, and structured cross-border transactions." />
+  <meta name="description" content="Tier One Global — A Global Investment Holding Firm. Privately held global investment and operating company focused on controlling interests in strategic industries." />
   <title>Tier One Global</title>
-
-  <!-- Typography -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Tier One Global" />
-  <meta property="og:description" content="Privately held strategic investment platform operating as principal across infrastructure, mining, metals, defense-aligned engagements, and structured cross-border transactions." />
+  <meta property="og:description" content="A privately held global investment and operating company focused on controlling interests in strategic industries critical to infrastructure, security, and economic stability." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="assets/t1g-logo.png" />
 
@@ -37,8 +32,8 @@
       --radius:18px;
       --max:1200px;
 
-      --serif: "Cinzel", ui-serif, "Georgia", "Times New Roman", Times, serif;
-      --sans: "Inter", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      /* SF Pro Display (system font on Apple). On Windows/others it will fall back cleanly. */
+      --sf: "SF Pro Display","SF Pro Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
     }
 
     *{box-sizing:border-box}
@@ -46,8 +41,11 @@
     body{
       margin:0;
       color:var(--text);
-      font-family:var(--sans);
+      font-family:var(--sf);
       background: linear-gradient(180deg,var(--bg1),var(--bg0));
+      text-rendering:optimizeLegibility;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
     }
     a{color:inherit; text-decoration:none}
     .wrap{max-width:var(--max); margin:0 auto; padding:0 22px}
@@ -75,17 +73,18 @@
     }
     .brand .logo img{width:100%; height:100%; object-fit:contain}
     .brand .name{
-      font-family:var(--serif);
-      font-size:15px;
+      font-size:14px;
       letter-spacing:.22em;
       text-transform:uppercase;
       line-height:1.1;
+      font-weight:600;
     }
     .brand .sub{
       font-size:11px; color:rgba(244,244,244,.75);
       margin-top:4px;
       letter-spacing:.24em;
       text-transform:uppercase;
+      font-weight:500;
     }
 
     .nav{
@@ -93,7 +92,7 @@
       font-size:12px;
       letter-spacing:.14em;
       text-transform:uppercase;
-      font-weight:500;
+      font-weight:600;
     }
     .nav a{
       padding:10px 12px;
@@ -169,25 +168,36 @@
       letter-spacing:.26em;
       text-transform:uppercase;
       margin:0 0 10px 0;
-      font-weight:600;
+      font-weight:700;
     }
 
     h1,h2,h3{
-      font-family:var(--serif);
       margin:0;
-      font-weight:600;
-      letter-spacing:.06em;
+      font-weight:700;
+      letter-spacing:.04em;
       text-transform:uppercase;
     }
     h1{font-size:44px; line-height:1.05}
     h2{font-size:30px; line-height:1.15}
-    h3{font-size:16px; letter-spacing:.12em}
+    h3{font-size:15px; letter-spacing:.12em}
     @media (max-width: 560px){
       h1{font-size:36px}
       h2{font-size:25px}
     }
-    p{margin:0; line-height:1.7; color:var(--muted); font-weight:300}
-    .band.light p{font-weight:400}
+    p{margin:0; line-height:1.7; color:var(--muted); font-weight:400}
+    .band.light p{font-weight:450}
+
+    /* Bullets (hero) */
+    .heroBullets{
+      margin:14px 0 0;
+      padding-left:18px;
+      color:rgba(244,244,244,.80);
+      line-height:1.75;
+      font-size:14px;
+    }
+    .heroBullets li{margin:6px 0}
+    .heroBullets li::marker{color:rgba(199,163,71,.88)}
+    .band.light .heroBullets{color:rgba(17,17,17,.74)}
 
     /* Buttons */
     .btns{display:flex; gap:12px; flex-wrap:wrap; margin-top:18px}
@@ -203,6 +213,7 @@
       text-transform:uppercase;
       cursor:pointer;
       transition: background .15s ease, border-color .15s ease, transform .15s ease;
+      font-weight:650;
     }
     .btn:hover{background:rgba(255,255,255,.05); transform: translateY(-1px)}
     .btn.primary{
@@ -341,6 +352,7 @@
       font-size:10px; letter-spacing:.18em; text-transform:uppercase;
       color:rgba(244,244,244,.82);
       margin-bottom:10px;
+      font-weight:700;
     }
     .band.light .proj{
       background: rgba(255,255,255,.92);
@@ -382,6 +394,7 @@
       border-radius:12px;
       padding:10px 12px;
       cursor:pointer;
+      font-weight:650;
     }
     .modalBody{padding:18px}
     .quad{display:grid; gap:12px; grid-template-columns:repeat(2,1fr)}
@@ -400,10 +413,11 @@
       font-size:12px;
       margin-bottom:10px;
       color:rgba(244,244,244,.92);
+      font-weight:800;
     }
 
     /* Forms */
-    label{display:block; font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:rgba(244,244,244,.65); margin:14px 0 8px}
+    label{display:block; font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:rgba(244,244,244,.65); margin:14px 0 8px; font-weight:700}
     input, select, textarea{
       width:100%;
       padding:12px 12px;
@@ -412,7 +426,8 @@
       background:rgba(0,0,0,.22);
       color:rgba(244,244,244,.92);
       outline:none;
-      font-family:var(--sans);
+      font-family:var(--sf);
+      font-weight:500;
     }
     textarea{min-height:120px; resize:vertical}
     .small{font-size:12px; color:rgba(244,244,244,.65); line-height:1.6}
@@ -476,14 +491,35 @@
         <div class="wrap">
           <div class="grid two">
             <div class="card pad">
-              <div class="kicker">Institutional Overview</div>
+              <div class="kicker">A Global Investment Holding Firm</div>
               <h1>Tier One Global</h1>
+
               <p style="margin-top:14px">
-                A privately held strategic investment platform operating as principal across infrastructure, mining, metals,
-                defense-aligned engagements, and structured cross-border transactions.
+                Tier One Global is a privately held global investment and operating company focused on controlling interests in strategic industries
+                critical to infrastructure, security, and economic stability. The firm operates as a long-horizon capital platform, deploying structured
+                investment strategies across sectors requiring disciplined governance and operational command.
               </p>
+
               <p style="margin-top:10px; color: var(--muted2);">
-                Operating under a compliance-first framework emphasizing governance, documentation integrity, and disciplined capital deployment.
+                Through its family office structure, Tier One Global maintains diversified holdings in mining, energy, defense, and aviation.
+                The firm emphasizes majority ownership or influential strategic positions that allow for operational oversight, capital optimization,
+                and long-term enterprise transformation.
+              </p>
+
+              <div class="rule"></div>
+
+              <div class="kicker">Investment Framework</div>
+              <ul class="heroBullets">
+                <li>Institutional capital discipline</li>
+                <li>Active operational leadership</li>
+                <li>Structured risk mitigation</li>
+                <li>Regulatory and geopolitical awareness</li>
+                <li>Multi-cycle value creation strategy</li>
+              </ul>
+
+              <p style="margin-top:14px; color: var(--muted2);">
+                The firm is built on the principle that enduring value is created through control, structure, and disciplined execution — not speculation.
+                Its mandate is to acquire, strengthen, and scale resilient enterprises capable of sustained performance across global markets.
               </p>
 
               <div class="btns">
@@ -499,49 +535,6 @@
                     <path d="M12 3l8 4v6c0 5-3.5 8.5-8 9-4.5-.5-8-4-8-9V7l8-4Z" stroke="rgba(199,163,71,.95)" stroke-width="1.6" stroke-linejoin="round"/>
                   </svg>
                 </a>
-              </div>
-
-              <div class="rule"></div>
-
-              <div class="kicker">Core Attributes</div>
-              <div class="tiles" style="margin-top:12px">
-                <div class="tile">
-                  <div class="t">
-                    <div class="ico">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                        <path d="M12 2l3 7h7l-5.6 4 2.2 7L12 16.8 5.4 20l2.2-7L2 9h7l3-7Z" stroke="rgba(199,163,71,.9)" stroke-width="1.5"/>
-                      </svg>
-                    </div>
-                    <h3>Principal Participation</h3>
-                  </div>
-                  <p>Direct participation model with defined internal approvals.</p>
-                </div>
-
-                <div class="tile">
-                  <div class="t">
-                    <div class="ico">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                        <path d="M7 3h10v18H7V3Z" stroke="rgba(199,163,71,.9)" stroke-width="1.5"/>
-                        <path d="M9 7h6M9 11h6M9 15h6" stroke="rgba(244,244,244,.75)" stroke-width="1.5"/>
-                      </svg>
-                    </div>
-                    <h3>Documentation Standards</h3>
-                  </div>
-                  <p>Institutional-grade documentation and sequencing controls.</p>
-                </div>
-
-                <div class="tile">
-                  <div class="t">
-                    <div class="ico">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                        <path d="M12 3v18M3 12h18" stroke="rgba(244,244,244,.75)" stroke-width="1.5"/>
-                        <path d="M7 7h10v10H7V7Z" stroke="rgba(199,163,71,.9)" stroke-width="1.5"/>
-                      </svg>
-                    </div>
-                    <h3>Execution Sequencing</h3>
-                  </div>
-                  <p>Structured checkpointing across engagement lifecycle.</p>
-                </div>
               </div>
             </div>
 
@@ -1169,3 +1162,4 @@
   </script>
 </body>
 </html>
+    
