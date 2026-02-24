@@ -7,7 +7,7 @@
   <meta name="description" content="Tier One Global — Institutional Orientation. Strategic participation across real assets, mining, metals, defense-aligned engagements, and structured cross-border transactions." />
   <title>Tier One Global</title>
 
-  <!-- Typography (institutional: elegant serif + clean sans) -->
+  <!-- Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -18,88 +18,95 @@
   <meta property="og:type" content="website" />
   <meta property="og:image" content="assets/t1g-logo.png" />
 
-  <!-- Favicon -->
   <link rel="icon" href="assets/t1g-logo.png" />
 
   <style>
     :root{
       --bg0:#0b0c0d;
-      --bg1:#101214;
-      --panel:#121416;
-      --panel2:#0f1113;
+      --bg1:#0f1113;
+      --ink:#111111;
+      --paper:#f6f5f2; /* warm off-white */
+      --paper2:#efede7;
 
       --text:#f4f4f4;
-      --muted:rgba(244,244,244,.70);
+      --muted:rgba(244,244,244,.72);
       --muted2:rgba(244,244,244,.58);
 
-      --gold:#c7a347;         /* primary accent */
-      --gold2:#9f7f2e;        /* darker accent */
-      --line:rgba(199,163,71,.35);
+      --inkMuted:rgba(17,17,17,.72);
+      --inkMuted2:rgba(17,17,17,.58);
 
-      --shadow: 0 12px 40px rgba(0,0,0,.45);
+      --gold:#c7a347;
+      --gold2:#9f7f2e;
+      --line:rgba(199,163,71,.30);
+
+      --serif:"Cinzel", ui-serif, Georgia, "Times New Roman", Times, serif;
+      --sans:"Inter", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+
+      --max:1180px;
       --radius:18px;
-      --max:1200px;
 
-      /* Match deck vibe: authoritative serif headline + modern sans body */
-      --serif: "Cinzel", ui-serif, "Georgia", "Times New Roman", Times, serif;
-      --sans: "Inter", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      /* softer shadows (cleaner) */
+      --shadowDark: 0 16px 48px rgba(0,0,0,.35);
+      --shadowLight: 0 14px 36px rgba(0,0,0,.10);
     }
 
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0;
-      color:var(--text);
       font-family:var(--sans);
-      background:
-        radial-gradient(1200px 700px at 85% 10%, rgba(199,163,71,.11), transparent 60%),
-        radial-gradient(900px 600px at 10% 30%, rgba(199,163,71,.08), transparent 55%),
-        linear-gradient(180deg,var(--bg1),var(--bg0));
+      color:var(--text);
+      background: var(--bg0);
     }
-
     a{color:inherit; text-decoration:none}
     .wrap{max-width:var(--max); margin:0 auto; padding:0 22px}
 
-    /* Top nav */
+    /* ====== TOPBAR (clean) ====== */
     .topbar{
       position:sticky; top:0; z-index:50;
-      backdrop-filter: blur(10px);
-      background: linear-gradient(180deg, rgba(11,12,13,.92), rgba(11,12,13,.65));
+      background: rgba(11,12,13,.88);
+      backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(255,255,255,.06);
     }
     .topbar .inner{
-      display:flex; align-items:center; justify-content:space-between;
-      height:78px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      padding:14px 0;
     }
     .brand{
       display:flex; align-items:center; gap:12px;
+      min-width: 240px;
     }
     .brand .logo{
-      width:54px; height:54px;
+      width:48px;height:48px;
       border-radius:14px;
       border:1px solid rgba(199,163,71,.35);
-      background:rgba(0,0,0,.18);
+      background: rgba(0,0,0,.18);
       display:grid; place-items:center;
       overflow:hidden;
-      box-shadow: 0 8px 22px rgba(0,0,0,.35);
+      box-shadow: 0 10px 26px rgba(0,0,0,.25);
     }
-    .brand .logo img{width:100%; height:100%; object-fit:contain}
+    .brand .logo img{width:100%;height:100%;object-fit:contain}
     .brand .name{
       font-family:var(--serif);
-      font-size:15px;
+      font-size:14px;
       letter-spacing:.22em;
       text-transform:uppercase;
       line-height:1.1;
     }
     .brand .sub{
-      font-size:11px; color:rgba(244,244,244,.75);
       margin-top:4px;
+      font-size:11px;
       letter-spacing:.24em;
       text-transform:uppercase;
+      color:rgba(244,244,244,.70);
     }
 
     .nav{
-      display:flex; align-items:center; gap:8px;
+      display:flex; align-items:center; gap:6px; flex-wrap:wrap;
+      justify-content:flex-end;
       font-size:12px;
       letter-spacing:.14em;
       text-transform:uppercase;
@@ -112,57 +119,38 @@
       border:1px solid transparent;
       transition: background .15s ease, border-color .15s ease, color .15s ease;
     }
-    .nav a:hover{background:rgba(255,255,255,.04)}
+    .nav a:hover{background:rgba(255,255,255,.05)}
     .nav a.active{
       color:var(--text);
       border-color:rgba(199,163,71,.35);
-      background:rgba(199,163,71,.07);
+      background:rgba(199,163,71,.10);
     }
-    .tag{
-      display:none;
-      font-size:10px;
-      letter-spacing:.18em;
-      text-transform:uppercase;
-      padding:8px 10px;
-      border-radius:999px;
-      border:1px solid rgba(199,163,71,.25);
-      color:rgba(244,244,244,.72);
-      background:rgba(0,0,0,.15);
-      user-select:none;
-    }
-    @media (min-width: 980px){ .tag{display:inline-flex} }
 
-    /* Layout helpers */
-    .page{
-      display:none;
-      padding:36px 0 74px;
-      min-height: calc(100vh - 78px);
-    }
+    /* ====== ROUTING PAGES ====== */
+    .page{display:none}
     .page.active{display:block}
 
-    .grid{display:grid; gap:18px}
-    .two{grid-template-columns: 1.15fr .85fr}
-    @media (max-width: 980px){
-      .two{grid-template-columns: 1fr}
-      .nav{gap:2px; flex-wrap:wrap; justify-content:flex-end}
-      .nav a{padding:10px 10px}
-      .topbar .inner{height:auto; padding:12px 0}
+    /* ====== BANDS (dark/light) ====== */
+    .band{
+      padding:56px 0;
     }
-
-    .card{
-      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-      border:1px solid rgba(255,255,255,.06);
-      border-radius:var(--radius);
-      box-shadow: var(--shadow);
+    .band.dark{
+      background:
+        radial-gradient(1200px 700px at 85% 0%, rgba(199,163,71,.10), transparent 60%),
+        radial-gradient(900px 600px at 10% 30%, rgba(199,163,71,.07), transparent 55%),
+        linear-gradient(180deg,var(--bg1),var(--bg0));
+      border-bottom: 1px solid rgba(255,255,255,.04);
     }
-    .card.pad{padding:22px}
-
-    .rule{
-      height:1px;
-      background:linear-gradient(90deg, transparent, var(--line), transparent);
-      margin:22px 0;
+    .band.light{
+      background: linear-gradient(180deg, var(--paper), var(--paper2));
+      color: var(--ink);
+      border-bottom: 1px solid rgba(0,0,0,.06);
     }
+    .band.light p{color:var(--inkMuted)}
+    .band.light .kicker{color:rgba(159,127,46,.92)}
+    .band.light h1,.band.light h2,.band.light h3{color:var(--ink)}
 
+    /* ====== TYPO ====== */
     .kicker{
       color:rgba(199,163,71,.92);
       font-size:11px;
@@ -171,7 +159,6 @@
       margin:0 0 10px 0;
       font-weight:600;
     }
-
     h1,h2,h3{
       font-family:var(--serif);
       margin:0;
@@ -182,81 +169,127 @@
     h1{font-size:44px; line-height:1.05}
     h2{font-size:30px; line-height:1.15}
     h3{font-size:16px; letter-spacing:.12em}
-
     @media (max-width: 560px){
       h1{font-size:36px}
       h2{font-size:25px}
     }
-
     p{margin:0; line-height:1.7; color:rgba(244,244,244,.78); font-weight:300}
+    .small{font-size:12px; line-height:1.6}
+    .muted{color:rgba(244,244,244,.70)}
+    .mutedInk{color:var(--inkMuted)}
 
-    /* Buttons */
+    .rule{
+      height:1px;
+      background: linear-gradient(90deg, transparent, var(--line), transparent);
+      margin:22px 0;
+    }
+    .band.light .rule{
+      background: linear-gradient(90deg, transparent, rgba(159,127,46,.25), transparent);
+    }
+
+    /* ====== CARDS / TILES ====== */
+    .card{
+      border-radius:var(--radius);
+      border:1px solid rgba(255,255,255,.06);
+      background: rgba(255,255,255,.04);
+      box-shadow: var(--shadowDark);
+    }
+    .band.light .card{
+      border:1px solid rgba(0,0,0,.08);
+      background: rgba(255,255,255,.72);
+      box-shadow: var(--shadowLight);
+    }
+    .card.pad{padding:22px}
+
+    .grid{display:grid; gap:18px}
+    .two{grid-template-columns: 1.15fr .85fr}
+    @media (max-width: 980px){
+      .two{grid-template-columns:1fr}
+      .brand{min-width:auto}
+    }
+
+    .tiles{display:grid; gap:12px; grid-template-columns:repeat(3, 1fr)}
+    @media (max-width: 980px){ .tiles{grid-template-columns:repeat(2,1fr)} }
+    @media (max-width: 560px){ .tiles{grid-template-columns:1fr} }
+
+    .tile{
+      padding:16px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.06);
+      background: rgba(0,0,0,.16);
+    }
+    .band.light .tile{
+      border:1px solid rgba(0,0,0,.08);
+      background: rgba(255,255,255,.86);
+    }
+    .tile .t{display:flex; align-items:center; gap:10px; margin-bottom:8px}
+    .ico{
+      width:34px; height:34px; border-radius:12px;
+      border:1px solid rgba(199,163,71,.30);
+      background: rgba(199,163,71,.10);
+      display:grid; place-items:center;
+      flex:0 0 auto;
+    }
+    .tile p{font-size:13px; color:rgba(244,244,244,.72)}
+    .band.light .tile p{color:var(--inkMuted)}
+
+    /* ====== BUTTONS ====== */
     .btns{display:flex; gap:12px; flex-wrap:wrap; margin-top:18px}
     .btn{
       display:inline-flex; align-items:center; gap:10px;
       padding:12px 14px;
       border-radius:999px;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.03);
-      color:rgba(244,244,244,.92);
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      color: rgba(244,244,244,.92);
       font-size:12px;
       letter-spacing:.16em;
       text-transform:uppercase;
       cursor:pointer;
       transition: background .15s ease, border-color .15s ease;
     }
-    .btn:hover{background:rgba(255,255,255,.05)}
+    .btn:hover{background:rgba(255,255,255,.06)}
     .btn.primary{
-      border-color:rgba(199,163,71,.35);
-      background:rgba(199,163,71,.10);
+      border-color: rgba(199,163,71,.35);
+      background: rgba(199,163,71,.12);
     }
-    .btn.primary:hover{background:rgba(199,163,71,.14)}
-    .btn svg{opacity:.9}
+    .btn.primary:hover{background:rgba(199,163,71,.16)}
+    .band.light .btn{
+      border:1px solid rgba(0,0,0,.14);
+      background: rgba(0,0,0,.03);
+      color: rgba(17,17,17,.92);
+    }
+    .band.light .btn:hover{background: rgba(0,0,0,.05)}
+    .band.light .btn.primary{
+      border-color: rgba(159,127,46,.35);
+      background: rgba(199,163,71,.18);
+    }
 
-    /* Tiles */
-    .tiles{display:grid; gap:12px; grid-template-columns:repeat(3, 1fr)}
-    @media (max-width: 980px){ .tiles{grid-template-columns:repeat(2,1fr)} }
-    @media (max-width: 560px){ .tiles{grid-template-columns:1fr} }
-    .tile{
-      padding:16px;
-      border-radius:16px;
-      border:1px solid rgba(255,255,255,.06);
-      background:rgba(0,0,0,.18);
-    }
-    .tile .t{display:flex; align-items:center; gap:10px; margin-bottom:8px}
-    .ico{
-      width:34px; height:34px; border-radius:12px;
-      border:1px solid rgba(199,163,71,.30);
-      background:rgba(199,163,71,.08);
-      display:grid; place-items:center;
-      flex:0 0 auto;
-    }
-    .tile p{font-size:13px; color:rgba(244,244,244,.72)}
-
-    /* Hero visual */
+    /* ====== HERO VISUAL (cleaner) ====== */
     .heroVisual{
       position:relative;
-      min-height: 380px;
+      min-height: 360px;
       overflow:hidden;
       border-radius: var(--radius);
       border:1px solid rgba(255,255,255,.06);
       background:
         linear-gradient(180deg, rgba(0,0,0,.10), rgba(0,0,0,.55)),
-        radial-gradient(900px 500px at 30% 30%, rgba(199,163,71,.18), transparent 58%),
-        linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.01));
+        radial-gradient(900px 500px at 30% 30%, rgba(199,163,71,.16), transparent 58%),
+        linear-gradient(135deg, rgba(255,255,255,.05), rgba(255,255,255,.01));
+      box-shadow: var(--shadowDark);
     }
     .gridlines{
       position:absolute; inset:-80px -80px -80px -80px;
       background-image:
         linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
-      background-size: 42px 42px;
-      opacity:.22;
+      background-size: 44px 44px;
+      opacity:.18;
       transform: rotate(10deg);
     }
     .seal{
       position:absolute; left:18px; top:18px;
-      width:72px; height:72px;
+      width:70px; height:70px;
       border-radius:18px;
       border:1px solid rgba(199,163,71,.34);
       background:rgba(0,0,0,.20);
@@ -268,54 +301,55 @@
       position:absolute;
       right:12%;
       bottom:-40px;
-      width: 190px;
-      height: 455px;
+      width: 180px;
+      height: 430px;
       border-radius: 18px;
       background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.02));
       border:1px solid rgba(255,255,255,.08);
-      box-shadow: 0 30px 80px rgba(0,0,0,.55);
+      box-shadow: 0 28px 74px rgba(0,0,0,.45);
       overflow:hidden;
     }
     .tower:before{
       content:"";
       position:absolute; inset:0;
       background:
-        linear-gradient(90deg, transparent 0 18%, rgba(199,163,71,.6) 18% 19%, transparent 19% 82%, rgba(199,163,71,.6) 82% 83%, transparent 83%),
-        linear-gradient(180deg, rgba(199,163,71,.25), transparent 30% 70%, rgba(199,163,71,.22));
+        linear-gradient(90deg, transparent 0 18%, rgba(199,163,71,.55) 18% 19%, transparent 19% 82%, rgba(199,163,71,.55) 82% 83%, transparent 83%),
+        linear-gradient(180deg, rgba(199,163,71,.22), transparent 30% 70%, rgba(199,163,71,.18));
       opacity:.8;
       mix-blend-mode:screen;
     }
 
-    /* Lists */
-    ul{margin:0; padding-left:18px; color:rgba(244,244,244,.78)}
-    li{margin:8px 0; line-height:1.55}
-
-    /* Projects */
+    /* ====== PROJECTS ====== */
     .projGrid{display:grid; gap:12px; grid-template-columns:repeat(3,1fr)}
     @media (max-width: 980px){ .projGrid{grid-template-columns:repeat(2,1fr)} }
     @media (max-width: 560px){ .projGrid{grid-template-columns:1fr} }
-
     .proj{
       padding:16px;
       border-radius:16px;
       border:1px solid rgba(255,255,255,.06);
-      background:rgba(0,0,0,.18);
+      background: rgba(0,0,0,.16);
       cursor:pointer;
       transition: background .15s ease, transform .12s ease;
     }
-    .proj:hover{background:rgba(255,255,255,.03); transform: translateY(-1px)}
+    .proj:hover{background:rgba(255,255,255,.04); transform: translateY(-1px)}
+    .band.light .proj{
+      border:1px solid rgba(0,0,0,.08);
+      background: rgba(255,255,255,.86);
+    }
+    .band.light .proj:hover{background: rgba(255,255,255,.95)}
     .pill{
       display:inline-flex; align-items:center;
       padding:6px 10px;
       border-radius:999px;
       border:1px solid rgba(199,163,71,.25);
-      background:rgba(199,163,71,.08);
+      background: rgba(199,163,71,.10);
       font-size:10px; letter-spacing:.18em; text-transform:uppercase;
-      color:rgba(244,244,244,.82);
+      color: rgba(244,244,244,.86);
       margin-bottom:10px;
     }
+    .band.light .pill{color: rgba(17,17,17,.88)}
 
-    /* Modal */
+    /* ====== MODAL ====== */
     .modalWrap{
       position:fixed; inset:0;
       display:none;
@@ -332,6 +366,7 @@
       background: linear-gradient(180deg, rgba(16,18,20,.98), rgba(10,11,12,.98));
       box-shadow: 0 30px 120px rgba(0,0,0,.70);
       overflow:hidden;
+      color: var(--text);
     }
     .modalHeader{
       padding:18px 18px;
@@ -340,8 +375,8 @@
     }
     .modalHeader .x{
       background:transparent;
-      border:1px solid rgba(255,255,255,.12);
-      color:rgba(244,244,244,.85);
+      border:1px solid rgba(255,255,255,.14);
+      color:rgba(244,244,244,.88);
       border-radius:12px;
       padding:10px 12px;
       cursor:pointer;
@@ -358,137 +393,58 @@
     .q .n{
       width:28px;height:28px;border-radius:10px;
       border:1px solid rgba(199,163,71,.35);
-      background:rgba(199,163,71,.08);
+      background:rgba(199,163,71,.10);
       display:grid; place-items:center;
       font-size:12px;
       margin-bottom:10px;
       color:rgba(244,244,244,.92);
     }
 
-    /* Forms */
-    label{display:block; font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:rgba(244,244,244,.65); margin:14px 0 8px}
+    /* ====== FORMS ====== */
+    label{
+      display:block;
+      font-size:11px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      color:rgba(244,244,244,.65);
+      margin:14px 0 8px
+    }
     input, select, textarea{
       width:100%;
       padding:12px 12px;
       border-radius:14px;
-      border:1px solid rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.12);
       background:rgba(0,0,0,.22);
       color:rgba(244,244,244,.92);
       outline:none;
       font-family:var(--sans);
     }
     textarea{min-height:120px; resize:vertical}
-    .small{font-size:12px; color:rgba(244,244,244,.65); line-height:1.6}
 
-    /* Footer */
+    .band.light label{color: rgba(17,17,17,.62)}
+    .band.light input,
+    .band.light select,
+    .band.light textarea{
+      border:1px solid rgba(0,0,0,.14);
+      background: rgba(255,255,255,.92);
+      color: rgba(17,17,17,.92);
+    }
+
+    /* ====== FOOTER ====== */
     .footer{
-      margin-top:30px;
-      padding:26px 0 40px;
+      padding:34px 0 44px;
+      background: #0b0c0d;
       border-top:1px solid rgba(255,255,255,.06);
-      background:rgba(0,0,0,.10);
     }
     .footer .inner{
-      display:flex; gap:14px; justify-content:space-between; align-items:flex-start;
+      display:flex; gap:18px; justify-content:space-between; align-items:flex-start;
       flex-wrap:wrap;
     }
     .footer a{color:rgba(244,244,244,.72)}
     .footer a:hover{color:rgba(244,244,244,.92)}
   </style>
-  /* ===== Clean Institutional Theme (Band Layout) ===== */
-
-/* Default to light site */
-body{
-  background:#f6f5f2; /* warm off-white */
-  color:#111;
-}
-
-/* Make paragraphs readable on light */
-p{ color: rgba(17,17,17,.72); font-weight: 300; }
-
-/* Replace dark topbar with a clean light header */
-.topbar{
-  background: rgba(246,245,242,.92);
-  border-bottom: 1px solid rgba(0,0,0,.07);
-  backdrop-filter: blur(10px);
-}
-
-/* Brand sub text for light header */
-.brand .sub{ color: rgba(0,0,0,.55); }
-
-/* Nav link colors on light */
-.nav a{ color: rgba(0,0,0,.70); }
-.nav a:hover{ background: rgba(0,0,0,.04); }
-.nav a.active{
-  color:#000;
-  border-color: rgba(159,127,46,.35);
-  background: rgba(159,127,46,.10);
-}
-
-/* Hide prototype badge always (or delete it in HTML) */
-.tag{ display:none !important; }
-
-/* Bands (light / dark sections) */
-.band{
-  border-radius: 22px;
-  overflow: hidden;
-  margin: 22px 0;
-}
-
-/* Light band */
-.band.light{
-  background:#f6f5f2;
-  padding: 40px 0;
-  color:#111;
-}
-.band.light .kicker{ color: rgba(159,127,46,.95); }
-.band.light p{ color: rgba(17,17,17,.72); }
-
-/* Dark band */
-.band.dark{
-  background:
-    radial-gradient(1200px 700px at 50% 20%, rgba(199,163,71,.12), transparent 60%),
-    linear-gradient(180deg,#0f1113,#0b0c0d);
-  padding: 56px 0;
-  color: var(--text);
-}
-.band.dark p{ color: rgba(244,244,244,.78); }
-
-/* Cards: lighter & cleaner on light bands */
-.card{
-  background: rgba(255,255,255,.78);
-  border: 1px solid rgba(0,0,0,.08);
-  box-shadow: 0 10px 28px rgba(0,0,0,.08);
-}
-
-/* Cards inside dark bands: glassy */
-.band.dark .card{
-  background: rgba(20,22,24,.55);
-  border: 1px solid rgba(255,255,255,.08);
-  box-shadow: 0 16px 44px rgba(0,0,0,.45);
-}
-
-/* Tiles: lighter on light bands */
-.tile{
-  background: rgba(255,255,255,.86);
-  border: 1px solid rgba(0,0,0,.08);
-}
-.band.dark .tile{
-  background: rgba(0,0,0,.18);
-  border: 1px solid rgba(255,255,255,.08);
-}
-
-/* Rule: subtle on light, gold on dark */
-.rule{
-  background: linear-gradient(90deg, transparent, rgba(0,0,0,.12), transparent);
-}
-.band.dark .rule{
-  background: linear-gradient(90deg, transparent, var(--line), transparent);
-}
-
-/* Kill “prototype-y” hero effects */
-.gridlines{ display:none !important; }
-.tower{ display:none !important; }
 </head>
+
 <body>
   <header class="topbar">
     <div class="wrap">
@@ -504,7 +460,6 @@ p{ color: rgba(17,17,17,.72); font-weight: 300; }
         </a>
 
         <nav class="nav" aria-label="Primary">
-          
           <a href="#/home" data-route="home">Home</a>
           <a href="#/about" data-route="about">About</a>
           <a href="#/capabilities" data-route="capabilities">Capabilities</a>
@@ -516,419 +471,523 @@ p{ color: rgba(17,17,17,.72); font-weight: 300; }
     </div>
   </header>
 
-  <main class="wrap">
-    <!-- HOME -->
+  <!-- HOME -->
+  <main>
     <section class="page" id="page-home" data-page="home">
+      <!-- Band 1: Dark -->
       <div class="band dark">
-  <div class="wrap">
-      <div class="grid two">
-        <div class="card pad">
-          <div class="kicker">Institutional Overview</div>
-          <h1>Tier One Global</h1>
-          <p style="margin-top:14px">
-            A privately held strategic investment platform operating as principal across infrastructure, mining, metals,
-            defense-aligned engagements, and structured cross-border transactions.
-          </p>
-          <p style="margin-top:10px" class="muted">
-            Operating under a compliance-first framework emphasizing governance, documentation integrity, and disciplined capital deployment.
-          </p>
-          <div class="btns">
-            <a class="btn primary" href="#/capabilities">
-              View Capabilities
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="rgba(244,244,244,.9)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-            <a class="btn" href="#/compliance">
-              Compliance Framework
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 3l8 4v6c0 5-3.5 8.5-8 9-4.5-.5-8-4-8-9V7l8-4Z" stroke="rgba(199,163,71,.95)" stroke-width="1.6" stroke-linejoin="round"/></svg>
-            </a>
-          </div>
-          <div class="rule"></div>
-          <div class="kicker">Core Attributes</div>
-          <div class="tiles" style="margin-top:12px">
-            <div class="tile">
-              <div class="t"><div class="ico">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2l3 7h7l-5.6 4 2.2 7L12 16.8 5.4 20l2.2-7L2 9h7l3-7Z" stroke="rgba(199,163,71,.9)" stroke-width="1.5"/></svg>
-              </div><h3>Principal Participation</h3></div>
-              <p>Direct participation model with defined internal approvals.</p>
-            </div>
-            <div class="tile">
-              <div class="t"><div class="ico">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M7 3h10v18H7V3Z" stroke="rgba(199,163,71,.9)" stroke-width="1.5"/><path d="M9 7h6M9 11h6M9 15h6" stroke="rgba(244,244,244,.75)" stroke-width="1.5"/></svg>
-              </div><h3>Documentation Standards</h3></div>
-              <p>Institutional-grade documentation and sequencing controls.</p>
-            </div>
-            <div class="tile">
-              <div class="t"><div class="ico">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 3v18M3 12h18" stroke="rgba(244,244,244,.75)" stroke-width="1.5"/><path d="M7 7h10v10H7V7Z" stroke="rgba(199,163,71,.9)" stroke-width="1.5"/></svg>
-              </div><h3>Execution Sequencing</h3></div>
-              <p>Structured checkpointing across engagement lifecycle.</p>
-            </div>
-          </div>
-        </div>
-        </div>
-    <div class="band light">
-  <div class="wrap">
+        <div class="wrap">
+          <div class="grid two">
+            <div class="card pad">
+              <div class="kicker">Institutional Overview</div>
+              <h1>Tier One Global</h1>
+              <p style="margin-top:14px">
+                A privately held strategic investment platform operating as principal across infrastructure, mining, metals,
+                defense-aligned engagements, and structured cross-border transactions.
+              </p>
+              <p style="margin-top:10px" class="muted">
+                Operating under a compliance-first framework emphasizing governance, documentation integrity, and disciplined capital deployment.
+              </p>
 
-        <div class="heroVisual" aria-label="Hero Visual">
-          <div class="gridlines"></div>
-          <div class="seal" title="Tier One Global">
-            <img src="assets/t1g-logo.png" alt="Tier One Global" />
+              <div class="btns">
+                <a class="btn primary" href="#/capabilities">
+                  View Capabilities
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+                <a class="btn" href="#/compliance">
+                  Compliance Framework
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 3l8 4v6c0 5-3.5 8.5-8 9-4.5-.5-8-4-8-9V7l8-4Z" stroke="rgba(199,163,71,.95)" stroke-width="1.6" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+              </div>
+
+              <div class="rule"></div>
+              <div class="kicker">Core Attributes</div>
+
+              <div class="tiles" style="margin-top:12px">
+                <div class="tile">
+                  <div class="t">
+                    <div class="ico">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 2l3 7h7l-5.6 4 2.2 7L12 16.8 5.4 20l2.2-7L2 9h7l3-7Z" stroke="rgba(199,163,71,.9)" stroke-width="1.5"/>
+                      </svg>
+                    </div>
+                    <h3>Principal Participation</h3>
+                  </div>
+                  <p>Direct participation model with defined internal approvals.</p>
+                </div>
+
+                <div class="tile">
+                  <div class="t">
+                    <div class="ico">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                        <path d="M7 3h10v18H7V3Z" stroke="rgba(199,163,71,.9)" stroke-width="1.5"/>
+                        <path d="M9 7h6M9 11h6M9 15h6" stroke="rgba(244,244,244,.75)" stroke-width="1.5"/>
+                      </svg>
+                    </div>
+                    <h3>Documentation Standards</h3>
+                  </div>
+                  <p>Institutional-grade documentation and sequencing controls.</p>
+                </div>
+
+                <div class="tile">
+                  <div class="t">
+                    <div class="ico">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 3v18M3 12h18" stroke="rgba(244,244,244,.75)" stroke-width="1.5"/>
+                        <path d="M7 7h10v10H7V7Z" stroke="rgba(199,163,71,.9)" stroke-width="1.5"/>
+                      </svg>
+                    </div>
+                    <h3>Execution Sequencing</h3>
+                  </div>
+                  <p>Structured checkpointing across engagement lifecycle.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="heroVisual" aria-label="Hero Visual">
+              <div class="gridlines"></div>
+              <div class="seal" title="Tier One Global">
+                <img src="assets/t1g-logo.png" alt="Tier One Global" />
+              </div>
+              <div class="tower"></div>
+            </div>
           </div>
-          <div class="tower"></div>
         </div>
       </div>
 
-      <div class="card pad" style="margin-top:18px">
-        <div class="kicker">Strategic Verticals</div>
-        <h2>Structured Participation Across Defined Capabilities</h2>
-        <p style="margin-top:10px">
-          Tier One Global maintains a defined suite of strategic verticals deployed selectively and governed by compliance-first controls.
-        </p>
-        <div class="rule"></div>
-        <div class="tiles">
-          <div class="tile"><div class="t"><div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 21V9l9-6 9 6v12" stroke="rgba(199,163,71,.9)" stroke-width="1.5"/><path d="M9 21v-8h6v8" stroke="rgba(244,244,244,.75)" stroke-width="1.5"/></svg></div><h3>Government</h3></div><p>Public-sector aligned participation requiring regulatory interface management and structured oversight.</p></div>
-          <div class="tile"><div class="t"><div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 9-4.5-.5-8-4-8-9V6l8-4Z" stroke="rgba(199,163,71,.9)" stroke-width="1.5"/></svg></div><h3>Defense Support</h3></div><p>Defense-aligned environments requiring disciplined coordination and risk-managed execution.</p></div>
-          <div class="tile"><div class="t"><div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 20V10l8-6 8 6v10" stroke="rgba(244,244,244,.75)" stroke-width="1.5"/><path d="M7 20v-6h10v6" stroke="rgba(199,163,71,.9)" stroke-width="1.5"/></svg></div><h3>Infrastructure</h3></div><p>Asset-backed initiatives requiring structured capital, regulatory coordination, and oversight.</p></div>
-          <div class="tile"><div class="t"><div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 17l6-6 4 4 7-7" stroke="rgba(199,163,71,.9)" stroke-width="1.6" stroke-linecap="round"/><path d="M3 21h18" stroke="rgba(244,244,244,.6)" stroke-width="1.5"/></svg></div><h3>Mining</h3></div><p>Capital allocation and operational oversight across mining ventures and resource development.</p></div>
-          <div class="tile"><div class="t"><div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M7 7h10v10H7V7Z" stroke="rgba(199,163,71,.9)" stroke-width="1.5"/><path d="M9 9h6v6H9V9Z" stroke="rgba(244,244,244,.6)" stroke-width="1.4"/></svg></div><h3>Metals</h3></div><p>Principal acquisition platform under documentation integrity and defined settlement sequencing.</p></div>
-          <div class="tile"><div class="t"><div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 2h12v4H6V2Z" stroke="rgba(199,163,71,.9)" stroke-width="1.5"/><path d="M6 8h12v14H6V8Z" stroke="rgba(244,244,244,.6)" stroke-width="1.5"/></svg></div><h3>Capital Structuring</h3></div><p>Cross-border coordination requiring procedural alignment and risk-managed capital exposure.</p></div>
-        </div>
-
-        <div class="rule"></div>
-        <div class="grid two">
-          <div>
-            <div class="kicker">Featured Project</div>
-            <h3>Portoviejo, Ecuador — Integrated Waste-to-Energy</h3>
-            <p style="margin-top:8px">
-              Structured participation in the development of a waste-to-energy initiative designed to address municipal waste management challenges while contributing to regional energy generation.
+      <!-- Band 2: Light -->
+      <div class="band light">
+        <div class="wrap">
+          <div class="card pad">
+            <div class="kicker">Strategic Verticals</div>
+            <h2>Structured Participation Across Defined Capabilities</h2>
+            <p style="margin-top:10px">
+              Tier One Global maintains a defined suite of strategic verticals deployed selectively and governed by compliance-first controls.
             </p>
-          </div>
-          <div style="display:flex; align-items:center; justify-content:flex-start; gap:12px; flex-wrap:wrap">
-            <a class="btn primary" href="#/projects" style="margin-top:10px">View Projects</a>
-            <a class="btn" href="#/contact" style="margin-top:10px">Institutional Inquiry</a>
+
+            <div class="rule"></div>
+
+            <div class="tiles">
+              <div class="tile">
+                <div class="t">
+                  <div class="ico"></div>
+                  <h3>Government</h3>
+                </div>
+                <p>Public-sector aligned participation requiring regulatory interface management and structured oversight.</p>
+              </div>
+
+              <div class="tile">
+                <div class="t">
+                  <div class="ico"></div>
+                  <h3>Defense Support</h3>
+                </div>
+                <p>Defense-aligned environments requiring disciplined coordination and risk-managed execution.</p>
+              </div>
+
+              <div class="tile">
+                <div class="t">
+                  <div class="ico"></div>
+                  <h3>Infrastructure</h3>
+                </div>
+                <p>Asset-backed initiatives requiring structured capital, regulatory coordination, and oversight.</p>
+              </div>
+
+              <div class="tile">
+                <div class="t">
+                  <div class="ico"></div>
+                  <h3>Mining</h3>
+                </div>
+                <p>Capital allocation and operational oversight across mining ventures and resource development.</p>
+              </div>
+
+              <div class="tile">
+                <div class="t">
+                  <div class="ico"></div>
+                  <h3>Metals</h3>
+                </div>
+                <p>Principal acquisition platform under documentation integrity and defined settlement sequencing.</p>
+              </div>
+
+              <div class="tile">
+                <div class="t">
+                  <div class="ico"></div>
+                  <h3>Capital Structuring</h3>
+                </div>
+                <p>Cross-border coordination requiring procedural alignment and risk-managed capital exposure.</p>
+              </div>
+            </div>
+
+            <div class="rule"></div>
+
+            <div class="grid two">
+              <div>
+                <div class="kicker">Featured Project</div>
+                <h3>Portoviejo, Ecuador — Integrated Waste-to-Energy</h3>
+                <p style="margin-top:8px" class="mutedInk">
+                  Structured participation in the development of a waste-to-energy initiative designed to address municipal waste management challenges while contributing to regional energy generation.
+                </p>
+              </div>
+              <div style="display:flex; align-items:center; justify-content:flex-start; gap:12px; flex-wrap:wrap">
+                <a class="btn primary" href="#/projects" style="margin-top:10px">View Projects</a>
+                <a class="btn" href="#/contact" style="margin-top:10px">Institutional Inquiry</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-        </div>  <!-- closes .wrap -->
-</div>    <!-- closes .band light -->
-         </div>
-</div> 
     </section>
 
     <!-- ABOUT -->
     <section class="page" id="page-about" data-page="about">
-      <div class="card pad">
-        <div class="kicker">About</div>
-        <h2>Institutional Orientation</h2>
-        <p style="margin-top:10px">
-          Tier One Global is a privately held strategic investment platform structured to operate as principal across select asset-backed initiatives and structured engagements.
-          The platform prioritizes governance, documentation integrity, and procedural sequencing.
-        </p>
-      </div>
-
-      <div class="grid two" style="margin-top:18px">
-        <div class="card pad">
-          <div class="kicker">Principal Investment Model</div>
-          <h3>Direct Capital Participation</h3>
-          <p style="margin-top:10px">
-            The principal model is structured around defined internal approval sequencing, formal written engagement frameworks, and controlled exposure parameters.
-          </p>
-          <div class="rule"></div>
-          <ul>
-            <li>Direct capital participation</li>
-            <li>Defined internal approval sequencing</li>
-            <li>Formal written engagement frameworks</li>
-            <li>Structured deployment timelines</li>
-            <li>Post-execution reconciliation and record retention</li>
-          </ul>
-        </div>
-
-        <div class="card pad">
-          <div class="kicker">Risk Discipline</div>
-          <h3>Controlled Exposure Parameters</h3>
-          <p style="margin-top:10px">
-            Risk mitigation precedes capital commitment. Engagement exposure is evaluated across counterparty, jurisdictional, logistics, documentation, and settlement considerations.
-          </p>
-          <div class="rule"></div>
-          <div class="tiles" style="grid-template-columns:1fr; gap:10px">
-            <div class="tile"><div class="t"><div class="ico"></div><h3>Counterparty</h3></div><p>Verification protocols and documentation validation standards.</p></div>
-            <div class="tile"><div class="t"><div class="ico"></div><h3>Jurisdiction</h3></div><p>Regulatory screening and jurisdictional exposure assessment.</p></div>
-            <div class="tile"><div class="t"><div class="ico"></div><h3>Logistics</h3></div><p>Chain-of-custody controls and insurance alignment where applicable.</p></div>
+      <div class="band light">
+        <div class="wrap">
+          <div class="card pad">
+            <div class="kicker">About</div>
+            <h2>Institutional Orientation</h2>
+            <p style="margin-top:10px">
+              Tier One Global is a privately held strategic investment platform structured to operate as principal across select asset-backed initiatives and structured engagements.
+              The platform prioritizes governance, documentation integrity, and procedural sequencing.
+            </p>
           </div>
-        </div>
-      </div>
 
-      <div class="card pad" style="margin-top:18px">
-        <div class="kicker">Governance Architecture</div>
-        <h3>Defined Governance Checkpoints</h3>
-        <div class="rule"></div>
-        <div class="tiles" style="grid-template-columns:repeat(4,1fr)">
-          <div class="tile"><p>Pre-engagement compliance review procedures</p></div>
-          <div class="tile"><p>Beneficial ownership validation processes</p></div>
-          <div class="tile"><p>Sanctions screening where applicable</p></div>
-          <div class="tile"><p>Record retention and audit trail maintenance</p></div>
+          <div class="grid two" style="margin-top:18px">
+            <div class="card pad">
+              <div class="kicker">Principal Investment Model</div>
+              <h3>Direct Capital Participation</h3>
+              <p style="margin-top:10px">
+                The principal model is structured around defined internal approval sequencing, formal written engagement frameworks, and controlled exposure parameters.
+              </p>
+              <div class="rule"></div>
+              <ul style="margin:0; padding-left:18px; color:var(--inkMuted)">
+                <li>Direct capital participation</li>
+                <li>Defined internal approval sequencing</li>
+                <li>Formal written engagement frameworks</li>
+                <li>Structured deployment timelines</li>
+                <li>Post-execution reconciliation and record retention</li>
+              </ul>
+            </div>
+
+            <div class="card pad">
+              <div class="kicker">Risk Discipline</div>
+              <h3>Controlled Exposure Parameters</h3>
+              <p style="margin-top:10px">
+                Risk mitigation precedes capital commitment. Engagement exposure is evaluated across counterparty, jurisdictional, logistics, documentation, and settlement considerations.
+              </p>
+              <div class="rule"></div>
+              <div class="tiles" style="grid-template-columns:1fr; gap:10px">
+                <div class="tile"><div class="t"><div class="ico"></div><h3>Counterparty</h3></div><p>Verification protocols and documentation validation standards.</p></div>
+                <div class="tile"><div class="t"><div class="ico"></div><h3>Jurisdiction</h3></div><p>Regulatory screening and jurisdictional exposure assessment.</p></div>
+                <div class="tile"><div class="t"><div class="ico"></div><h3>Logistics</h3></div><p>Chain-of-custody controls and insurance alignment where applicable.</p></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card pad" style="margin-top:18px">
+            <div class="kicker">Governance Architecture</div>
+            <h3>Defined Governance Checkpoints</h3>
+            <div class="rule"></div>
+            <div class="tiles" style="grid-template-columns:repeat(4,1fr)">
+              <div class="tile"><p>Pre-engagement compliance review procedures</p></div>
+              <div class="tile"><p>Beneficial ownership validation processes</p></div>
+              <div class="tile"><p>Sanctions screening where applicable</p></div>
+              <div class="tile"><p>Record retention and audit trail maintenance</p></div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- CAPABILITIES -->
     <section class="page" id="page-capabilities" data-page="capabilities">
-      <div class="card pad">
-        <div class="kicker">Capabilities</div>
-        <h2>Strategic Verticals</h2>
-        <p style="margin-top:10px">
-          Tier One Global maintains defined capabilities deployed selectively and governed by institutional compliance standards and disciplined execution frameworks.
-        </p>
-      </div>
+      <div class="band dark">
+        <div class="wrap">
+          <div class="card pad">
+            <div class="kicker">Capabilities</div>
+            <h2>Strategic Verticals</h2>
+            <p style="margin-top:10px">
+              Tier One Global maintains defined capabilities deployed selectively and governed by institutional compliance standards and disciplined execution frameworks.
+            </p>
+          </div>
 
-      <div class="card pad" style="margin-top:18px">
-        <div class="kicker">Vertical Index</div>
-        <div class="btns" style="margin-top:8px">
-          <a class="btn" href="#/capabilities?sec=gov">Government</a>
-          <a class="btn" href="#/capabilities?sec=def">Defense Support</a>
-          <a class="btn" href="#/capabilities?sec=infra">Infrastructure</a>
-          <a class="btn" href="#/capabilities?sec=mining">Mining</a>
-          <a class="btn" href="#/capabilities?sec=metals">Metals</a>
-          <a class="btn" href="#/capabilities?sec=capital">Capital Structuring</a>
+          <div class="card pad" style="margin-top:18px">
+            <div class="kicker">Vertical Index</div>
+            <div class="btns" style="margin-top:8px">
+              <a class="btn" href="#/capabilities?sec=gov">Government</a>
+              <a class="btn" href="#/capabilities?sec=def">Defense Support</a>
+              <a class="btn" href="#/capabilities?sec=infra">Infrastructure</a>
+              <a class="btn" href="#/capabilities?sec=mining">Mining</a>
+              <a class="btn" href="#/capabilities?sec=metals">Metals</a>
+              <a class="btn" href="#/capabilities?sec=capital">Capital Structuring</a>
+            </div>
+          </div>
+
+          <div id="cap-sections" style="margin-top:18px; display:grid; gap:18px">
+            <section class="card pad" data-sec="gov">
+              <div class="kicker">Strategic Vertical</div>
+              <h2>Government & Public Sector Engagement</h2>
+              <p style="margin-top:10px">
+                Structured participation in sovereign-aligned initiatives requiring regulatory interface management, documentation integrity, and coordinated execution oversight.
+              </p>
+              <div class="rule"></div>
+              <div class="tiles">
+                <div class="tile"><div class="t"><div class="ico"></div><h3>Focus</h3></div><p>Policy-aligned infrastructure, public-private frameworks, stakeholder coordination.</p></div>
+                <div class="tile"><div class="t"><div class="ico"></div><h3>Controls</h3></div><p>Documentation sequencing, internal approvals, compliance clearance prior to execution.</p></div>
+                <div class="tile"><div class="t"><div class="ico"></div><h3>Risk</h3></div><p>Jurisdictional screening, contractual clarity, governance checkpoints across lifecycle phases.</p></div>
+              </div>
+            </section>
+
+            <section class="card pad" data-sec="def">
+              <div class="kicker">Strategic Vertical</div>
+              <h2>Defense & Security Support</h2>
+              <p style="margin-top:10px">
+                Participation in defense-support environments requiring disciplined coordination, structured oversight, and compliance-driven execution.
+              </p>
+              <div class="rule"></div>
+              <div class="tiles">
+                <div class="tile"><div class="t"><div class="ico"></div><h3>Focus</h3></div><p>Program coordination frameworks, lifecycle oversight, procurement alignment, partner integration.</p></div>
+                <div class="tile"><div class="t"><div class="ico"></div><h3>Controls</h3></div><p>Compliance-aligned contracting standards and defined approval sequencing.</p></div>
+                <div class="tile"><div class="t"><div class="ico"></div><h3>Risk</h3></div><p>Regulatory alignment, governance checkpointing, documentation integrity requirements.</p></div>
+              </div>
+            </section>
+
+            <section class="card pad" data-sec="infra">
+              <div class="kicker">Strategic Vertical</div>
+              <h2>Real Assets & Infrastructure</h2>
+              <p style="margin-top:10px">
+                Participation in infrastructure initiatives requiring structured capital, regulatory coordination, and defined operational oversight.
+              </p>
+              <div class="rule"></div>
+              <div class="tiles">
+                <div class="tile"><div class="t"><div class="ico"></div><h3>Focus</h3></div><p>Energy transition platforms, waste-to-energy development, modernization, resource optimization systems.</p></div>
+                <div class="tile"><div class="t"><div class="ico"></div><h3>Controls</h3></div><p>Regulatory interface management, technical coordination alignment, sequenced capital deployment.</p></div>
+                <div class="tile"><div class="t"><div class="ico"></div><h3>Risk</h3></div><p>Jurisdictional screening, counterparty diligence, insurance alignment where appropriate.</p></div>
+              </div>
+            </section>
+
+            <section class="card pad" data-sec="mining">
+              <div class="kicker">Strategic Vertical</div>
+              <h2>Mining & Mineral Operations</h2>
+              <p style="margin-top:10px">
+                Capital allocation and operational oversight across mining ventures and resource development initiatives, governed by defined internal controls and risk-managed exposure parameters.
+              </p>
+              <div class="rule"></div>
+              <div class="tiles">
+                <div class="tile"><div class="t"><div class="ico"></div><h3>Focus</h3></div><p>Equity participation, development capital, operational structuring, strategic mineral exposure.</p></div>
+                <div class="tile"><div class="t"><div class="ico"></div><h3>Controls</h3></div><p>Governance checkpointing, documentation validation, jurisdictional and operational screening.</p></div>
+                <div class="tile"><div class="t"><div class="ico"></div><h3>Risk</h3></div><p>Counterparty and jurisdictional controls, operational risk assessment, defined risk allocation prior to deployment.</p></div>
+              </div>
+            </section>
+
+            <section class="card pad" data-sec="metals">
+              <div class="kicker">Strategic Vertical</div>
+              <h2>Precious Metals Platform</h2>
+              <p style="margin-top:10px">
+                Principal acquisition of physical gold doré and select metals under a compliance-driven sourcing framework emphasizing documentation integrity and defined settlement sequencing.
+              </p>
+              <div class="rule"></div>
+              <div class="tiles">
+                <div class="tile"><div class="t"><div class="ico"></div><h3>Governance</h3></div><p>KYC/AML verification, beneficial ownership review, source-of-origin validation.</p></div>
+                <div class="tile"><div class="t"><div class="ico"></div><h3>Logistics</h3></div><p>Insurance-backed shipment alignment, chain-of-custody documentation, acceptance procedures.</p></div>
+                <div class="tile"><div class="t"><div class="ico"></div><h3>Risk</h3></div><p>Counterparty, jurisdictional, logistics, documentation, and settlement risk controls.</p></div>
+              </div>
+            </section>
+
+            <section class="card pad" data-sec="capital">
+              <div class="kicker">Strategic Vertical</div>
+              <h2>Capital Structuring</h2>
+              <p style="margin-top:10px">
+                Structured support for cross-border transactions requiring coordination between counterparties, financial institutions, insurers, logistics providers, and regulatory stakeholders.
+              </p>
+              <div class="rule"></div>
+              <div class="tiles">
+                <div class="tile"><div class="t"><div class="ico"></div><h3>Coordination</h3></div><p>Documentation sequencing, stakeholder alignment, settlement framework definition.</p></div>
+                <div class="tile"><div class="t"><div class="ico"></div><h3>Discipline</h3></div><p>Defined exposure parameters, sequenced deployment, verification and clearance protocols.</p></div>
+                <div class="tile"><div class="t"><div class="ico"></div><h3>Orientation</h3></div><p>Non-speculative posture; participation governed by formal written frameworks.</p></div>
+              </div>
+            </section>
+          </div>
         </div>
-      </div>
-
-      <div id="cap-sections" style="margin-top:18px; display:grid; gap:18px">
-        <section class="card pad" data-sec="gov">
-          <div class="kicker">Strategic Vertical</div>
-          <h2>Government & Public Sector Engagement</h2>
-          <p style="margin-top:10px">
-            Structured participation in sovereign-aligned initiatives requiring regulatory interface management, documentation integrity, and coordinated execution oversight.
-          </p>
-          <div class="rule"></div>
-          <div class="tiles">
-            <div class="tile"><div class="t"><div class="ico"></div><h3>Focus</h3></div><p>Policy-aligned infrastructure, public-private frameworks, stakeholder coordination.</p></div>
-            <div class="tile"><div class="t"><div class="ico"></div><h3>Controls</h3></div><p>Documentation sequencing, internal approvals, compliance clearance prior to execution.</p></div>
-            <div class="tile"><div class="t"><div class="ico"></div><h3>Risk</h3></div><p>Jurisdictional screening, contractual clarity, governance checkpoints across lifecycle phases.</p></div>
-          </div>
-        </section>
-
-        <section class="card pad" data-sec="def">
-          <div class="kicker">Strategic Vertical</div>
-          <h2>Defense & Security Support</h2>
-          <p style="margin-top:10px">
-            Participation in defense-support environments requiring disciplined coordination, structured oversight, and compliance-driven execution.
-          </p>
-          <div class="rule"></div>
-          <div class="tiles">
-            <div class="tile"><div class="t"><div class="ico"></div><h3>Focus</h3></div><p>Program coordination frameworks, lifecycle oversight, procurement alignment, partner integration.</p></div>
-            <div class="tile"><div class="t"><div class="ico"></div><h3>Controls</h3></div><p>Compliance-aligned contracting standards and defined approval sequencing.</p></div>
-            <div class="tile"><div class="t"><div class="ico"></div><h3>Risk</h3></div><p>Regulatory alignment, governance checkpointing, documentation integrity requirements.</p></div>
-          </div>
-        </section>
-
-        <section class="card pad" data-sec="infra">
-          <div class="kicker">Strategic Vertical</div>
-          <h2>Real Assets & Infrastructure</h2>
-          <p style="margin-top:10px">
-            Participation in infrastructure initiatives requiring structured capital, regulatory coordination, and defined operational oversight.
-          </p>
-          <div class="rule"></div>
-          <div class="tiles">
-            <div class="tile"><div class="t"><div class="ico"></div><h3>Focus</h3></div><p>Energy transition platforms, waste-to-energy development, modernization, resource optimization systems.</p></div>
-            <div class="tile"><div class="t"><div class="ico"></div><h3>Controls</h3></div><p>Regulatory interface management, technical coordination alignment, sequenced capital deployment.</p></div>
-            <div class="tile"><div class="t"><div class="ico"></div><h3>Risk</h3></div><p>Jurisdictional screening, counterparty diligence, insurance alignment where appropriate.</p></div>
-          </div>
-        </section>
-
-        <section class="card pad" data-sec="mining">
-          <div class="kicker">Strategic Vertical</div>
-          <h2>Mining & Mineral Operations</h2>
-          <p style="margin-top:10px">
-            Capital allocation and operational oversight across mining ventures and resource development initiatives, governed by defined internal controls and risk-managed exposure parameters.
-          </p>
-          <div class="rule"></div>
-          <div class="tiles">
-            <div class="tile"><div class="t"><div class="ico"></div><h3>Focus</h3></div><p>Equity participation, development capital, operational structuring, strategic mineral exposure.</p></div>
-            <div class="tile"><div class="t"><div class="ico"></div><h3>Controls</h3></div><p>Governance checkpointing, documentation validation, jurisdictional and operational screening.</p></div>
-            <div class="tile"><div class="t"><div class="ico"></div><h3>Risk</h3></div><p>Counterparty and jurisdictional controls, operational risk assessment, defined risk allocation prior to deployment.</p></div>
-          </div>
-        </section>
-
-        <section class="card pad" data-sec="metals">
-          <div class="kicker">Strategic Vertical</div>
-          <h2>Precious Metals Platform</h2>
-          <p style="margin-top:10px">
-            Principal acquisition of physical gold doré and select metals under a compliance-driven sourcing framework emphasizing documentation integrity and defined settlement sequencing.
-          </p>
-          <div class="rule"></div>
-          <div class="tiles">
-            <div class="tile"><div class="t"><div class="ico"></div><h3>Governance</h3></div><p>KYC/AML verification, beneficial ownership review, source-of-origin validation.</p></div>
-            <div class="tile"><div class="t"><div class="ico"></div><h3>Logistics</h3></div><p>Insurance-backed shipment alignment, chain-of-custody documentation, acceptance procedures.</p></div>
-            <div class="tile"><div class="t"><div class="ico"></div><h3>Risk</h3></div><p>Counterparty, jurisdictional, logistics, documentation, and settlement risk controls.</p></div>
-          </div>
-        </section>
-
-        <section class="card pad" data-sec="capital">
-          <div class="kicker">Strategic Vertical</div>
-          <h2>Capital Structuring</h2>
-          <p style="margin-top:10px">
-            Structured support for cross-border transactions requiring coordination between counterparties, financial institutions, insurers, logistics providers, and regulatory stakeholders.
-          </p>
-          <div class="rule"></div>
-          <div class="tiles">
-            <div class="tile"><div class="t"><div class="ico"></div><h3>Coordination</h3></div><p>Documentation sequencing, stakeholder alignment, settlement framework definition.</p></div>
-            <div class="tile"><div class="t"><div class="ico"></div><h3>Discipline</h3></div><p>Defined exposure parameters, sequenced deployment, verification and clearance protocols.</p></div>
-            <div class="tile"><div class="t"><div class="ico"></div><h3>Orientation</h3></div><p>Non-speculative posture; participation governed by formal written frameworks.</p></div>
-          </div>
-        </section>
       </div>
     </section>
 
     <!-- PROJECTS -->
     <section class="page" id="page-projects" data-page="projects">
-      <div class="card pad">
-        <div class="kicker">Projects</div>
-        <h2>Selective Participation</h2>
-        <p style="margin-top:10px">Project profiles are presented at a high level. Specific commercial terms are not disclosed publicly.</p>
-      </div>
+      <div class="band light">
+        <div class="wrap">
+          <div class="card pad">
+            <div class="kicker">Projects</div>
+            <h2>Selective Participation</h2>
+            <p style="margin-top:10px">Project profiles are presented at a high level. Specific commercial terms are not disclosed publicly.</p>
+          </div>
 
-      <div class="card pad" style="margin-top:18px">
-        <div class="kicker">Portfolio</div>
-        <div class="projGrid" style="margin-top:10px">
-          <div class="proj" data-project="portoviejo">
-            <div class="pill">Infrastructure</div>
-            <h3>Portoviejo, Ecuador</h3>
-            <p class="muted" style="margin-top:8px">Integrated Waste-to-Energy Development</p>
+          <div class="card pad" style="margin-top:18px">
+            <div class="kicker">Portfolio</div>
+            <div class="projGrid" style="margin-top:10px">
+              <div class="proj" data-project="portoviejo">
+                <div class="pill">Infrastructure</div>
+                <h3>Portoviejo, Ecuador</h3>
+                <p style="margin-top:8px" class="mutedInk">Integrated Waste-to-Energy Development</p>
+              </div>
+              <div class="proj" data-project="placeholder1">
+                <div class="pill">Mining</div>
+                <h3>Mining & Minerals</h3>
+                <p style="margin-top:8px" class="mutedInk">Project profiles available upon request</p>
+              </div>
+              <div class="proj" data-project="placeholder2">
+                <div class="pill">Metals</div>
+                <h3>Precious Metals Platform</h3>
+                <p style="margin-top:8px" class="mutedInk">Institutional circulation only</p>
+              </div>
+            </div>
           </div>
-          <div class="proj" data-project="placeholder1">
-            <div class="pill">Mining</div>
-            <h3>Mining & Minerals</h3>
-            <p class="muted" style="margin-top:8px">Project profiles available upon request</p>
-          </div>
-          <div class="proj" data-project="placeholder2">
-            <div class="pill">Metals</div>
-            <h3>Precious Metals Platform</h3>
-            <p class="muted" style="margin-top:8px">Institutional circulation only</p>
+
+          <div class="card pad" style="margin-top:18px">
+            <div class="kicker">Disclosure</div>
+            <p class="small mutedInk">
+              Profiles are provided for informational purposes only. Engagements remain subject to compliance clearance, documentation verification, and formal written agreements.
+            </p>
           </div>
         </div>
-      </div>
-
-      <div class="card pad" style="margin-top:18px">
-        <div class="kicker">Disclosure</div>
-        <p class="small">
-          Profiles are provided for informational purposes only. Engagements remain subject to compliance clearance, documentation verification, and formal written agreements.
-        </p>
       </div>
     </section>
 
     <!-- COMPLIANCE -->
     <section class="page" id="page-compliance" data-page="compliance">
-      <div class="card pad">
-        <div class="kicker">Compliance</div>
-        <h2>Compliance Framework</h2>
-        <p style="margin-top:10px">Tier One Global maintains a compliance-first framework aligned with international trade and financial regulations. Compliance precedes execution.</p>
-      </div>
+      <div class="band dark">
+        <div class="wrap">
+          <div class="card pad">
+            <div class="kicker">Compliance</div>
+            <h2>Compliance Framework</h2>
+            <p style="margin-top:10px">
+              Tier One Global maintains a compliance-first framework aligned with international trade and financial regulations. Compliance precedes execution.
+            </p>
+          </div>
 
-      <div class="card pad" style="margin-top:18px">
-        <div class="kicker">Standards Include</div>
-        <div class="tiles" style="margin-top:10px">
-          <div class="tile"><p>KYC / AML protocols</p></div>
-          <div class="tile"><p>Counterparty verification</p></div>
-          <div class="tile"><p>Sanctions screening (where applicable)</p></div>
-          <div class="tile"><p>Regulatory jurisdiction review</p></div>
-          <div class="tile"><p>Insurance-backed logistics confirmation</p></div>
-          <div class="tile"><p>Audit-ready record retention</p></div>
-        </div>
-      </div>
+          <div class="card pad" style="margin-top:18px">
+            <div class="kicker">Standards Include</div>
+            <div class="tiles" style="margin-top:10px">
+              <div class="tile"><p>KYC / AML protocols</p></div>
+              <div class="tile"><p>Counterparty verification</p></div>
+              <div class="tile"><p>Sanctions screening (where applicable)</p></div>
+              <div class="tile"><p>Regulatory jurisdiction review</p></div>
+              <div class="tile"><p>Insurance-backed logistics confirmation</p></div>
+              <div class="tile"><p>Audit-ready record retention</p></div>
+            </div>
+          </div>
 
-      <div class="card pad" style="margin-top:18px">
-        <div class="kicker">Engagement Parameters</div>
-        <div class="tiles" style="grid-template-columns:repeat(5,1fr); margin-top:10px">
-          <div class="tile"><p>Documentation integrity is verifiable</p></div>
-          <div class="tile"><p>Jurisdictional exposure is acceptable</p></div>
-          <div class="tile"><p>Regulatory alignment is confirmed</p></div>
-          <div class="tile"><p>Settlement mechanics are defined</p></div>
-          <div class="tile"><p>Counterparty credibility is established</p></div>
-        </div>
-      </div>
+          <div class="card pad" style="margin-top:18px">
+            <div class="kicker">Engagement Parameters</div>
+            <div class="tiles" style="grid-template-columns:repeat(5,1fr); margin-top:10px">
+              <div class="tile"><p>Documentation integrity is verifiable</p></div>
+              <div class="tile"><p>Jurisdictional exposure is acceptable</p></div>
+              <div class="tile"><p>Regulatory alignment is confirmed</p></div>
+              <div class="tile"><p>Settlement mechanics are defined</p></div>
+              <div class="tile"><p>Counterparty credibility is established</p></div>
+            </div>
+          </div>
 
-      <div class="card pad" style="margin-top:18px">
-        <div class="kicker">Execution Flow</div>
-        <div class="rule"></div>
-        <div class="tiles" style="grid-template-columns:repeat(4,1fr)">
-          <div class="tile"><p><b>1.</b> Counterparty pre-screening</p></div>
-          <div class="tile"><p><b>2.</b> Documentation & compliance clearance</p></div>
-          <div class="tile"><p><b>3.</b> Conditional approval</p></div>
-          <div class="tile"><p><b>4.</b> Logistics coordination</p></div>
-          <div class="tile"><p><b>5.</b> Shipment verification</p></div>
-          <div class="tile"><p><b>6.</b> Assay & inspection (where applicable)</p></div>
-          <div class="tile"><p><b>7.</b> Settlement execution</p></div>
-          <div class="tile"><p><b>8.</b> Post-settlement reconciliation</p></div>
+          <div class="card pad" style="margin-top:18px">
+            <div class="kicker">Execution Flow</div>
+            <div class="rule"></div>
+            <div class="tiles" style="grid-template-columns:repeat(4,1fr)">
+              <div class="tile"><p><b>1.</b> Counterparty pre-screening</p></div>
+              <div class="tile"><p><b>2.</b> Documentation & compliance clearance</p></div>
+              <div class="tile"><p><b>3.</b> Conditional approval</p></div>
+              <div class="tile"><p><b>4.</b> Logistics coordination</p></div>
+              <div class="tile"><p><b>5.</b> Shipment verification</p></div>
+              <div class="tile"><p><b>6.</b> Assay & inspection (where applicable)</p></div>
+              <div class="tile"><p><b>7.</b> Settlement execution</p></div>
+              <div class="tile"><p><b>8.</b> Post-settlement reconciliation</p></div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- CONTACT -->
     <section class="page" id="page-contact" data-page="contact">
-      <div class="card pad">
-        <div class="kicker">Contact</div>
-        <h2>Institutional Inquiries</h2>
-        <p style="margin-top:10px">Inquiries are reviewed subject to compliance clearance and formal documentation standards.</p>
-      </div>
+      <div class="band light">
+        <div class="wrap">
+          <div class="card pad">
+            <div class="kicker">Contact</div>
+            <h2>Institutional Inquiries</h2>
+            <p style="margin-top:10px">Inquiries are reviewed subject to compliance clearance and formal documentation standards.</p>
+          </div>
 
-      <div class="grid two" style="margin-top:18px">
-        <div class="card pad">
-          <div class="kicker">Office</div>
-          <h3>Two Datran Center</h3>
-          <p style="margin-top:10px" class="muted">
-            9130 South Dadeland Blvd.<br/> Suite 1902<br/> Miami, FL 33156<br/>United States
-          </p>
-          <div class="rule"></div>
-          <div class="kicker">Email</div>
-          <p style="margin-top:6px"><a href="mailto:info@tieroneglobal.com">info@tieroneglobal.com</a></p>
-          <div class="rule"></div>
-          <p class="small">Engagements subject to compliance review, documentation verification, and formal written agreements.</p>
-        </div>
+          <div class="grid two" style="margin-top:18px">
+            <div class="card pad">
+              <div class="kicker">Office</div>
+              <h3>Two Datran Center</h3>
+              <p style="margin-top:10px" class="mutedInk">
+                9130 South Dadeland Blvd.<br/>
+                Suite 1902<br/>
+                Miami, FL 33156<br/>
+                United States
+              </p>
 
-        <div class="card pad">
-          <div class="kicker">Secure Inquiry Form</div>
-          <form onsubmit="event.preventDefault(); alert( ' Thank you. Your inquiry has been received and will be reviewed.');">
-            <label>Name</label>
-            <input placeholder="Full name" />
-            <label>Organization</label>
-            <input placeholder="Company / Institution" />
-            <label>Email</label>
-            <input type="email" placeholder="name@domain.com" />
-            <label>Jurisdiction</label>
-            <input placeholder="Country / Region" />
-            <label>Inquiry Type</label>
-            <select>
-              <option>Infrastructure</option>
-              <option>Mining & Minerals</option>
-              <option>Precious Metals</option>
-              <option>Government</option>
-              <option>Defense Support</option>
-              <option>Capital Structuring</option>
-            </select>
-            <label>Message</label>
-            <textarea placeholder="High-level inquiry (no sensitive details in this form)"></textarea>
-            <label style="display:flex; gap:10px; align-items:flex-start; margin-top:14px">
-              <input type="checkbox" style="width:auto; margin-top:3px" />
-              <span class="small">I confirm the information provided is accurate and that this inquiry is submitted in good faith.</span>
-            </label>
-            <div class="btns">
-              <button class="btn primary" type="submit">Submit Inquiry</button>
-              <a class="btn" href="#/compliance">View Compliance</a>
+              <div class="rule"></div>
+
+              <div class="kicker">Email</div>
+              <p style="margin-top:6px"><a href="mailto:info@tieroneglobal.com">info@tieroneglobal.com</a></p>
+
+              <div class="rule"></div>
+              <p class="small mutedInk">Engagements subject to compliance review, documentation verification, and formal written agreements.</p>
             </div>
-          </form>
+
+            <div class="card pad">
+              <div class="kicker">Secure Inquiry Form</div>
+              <form onsubmit="event.preventDefault(); alert('Prototype only — form submission disabled.');">
+                <label>Name</label>
+                <input placeholder="Full name" />
+                <label>Organization</label>
+                <input placeholder="Company / Institution" />
+                <label>Email</label>
+                <input type="email" placeholder="name@domain.com" />
+                <label>Jurisdiction</label>
+                <input placeholder="Country / Region" />
+                <label>Inquiry Type</label>
+                <select>
+                  <option>Infrastructure</option>
+                  <option>Mining & Minerals</option>
+                  <option>Precious Metals</option>
+                  <option>Government</option>
+                  <option>Defense Support</option>
+                  <option>Capital Structuring</option>
+                </select>
+                <label>Message</label>
+                <textarea placeholder="High-level inquiry (no sensitive details in this form)"></textarea>
+                <label style="display:flex; gap:10px; align-items:flex-start; margin-top:14px">
+                  <input type="checkbox" style="width:auto; margin-top:3px" />
+                  <span class="small mutedInk">I confirm the information provided is accurate and that this inquiry is submitted in good faith.</span>
+                </label>
+                <div class="btns">
+                  <button class="btn primary" type="submit">Submit Inquiry</button>
+                  <a class="btn" href="#/compliance">View Compliance</a>
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- FOOTER -->
     <footer class="footer">
       <div class="wrap">
-        <div class="rule" style="margin:0 0 18px 0"></div>
         <div class="inner">
           <div>
             <div class="kicker">Tier One Global</div>
-            <div class="small">Two Datran Center • 9130 South Dadeland Blvd. •  Suite 1902  • Miami, FL</div>
+            <div class="small">Two Datran Center • 9130 South Dadeland Blvd. • Suite 1902 • Miami, FL 33156</div>
+            <div style="margin-top:10px" class="small" style="color:rgba(244,244,244,.65)">
+              Information is for general informational purposes only and does not constitute an offer or solicitation.
+              All engagements subject to compliance review and formal written agreements.
+            </div>
           </div>
+
           <div style="display:flex; gap:14px; flex-wrap:wrap">
             <a class="small" href="#/home">Home</a>
             <a class="small" href="#/about">About</a>
@@ -938,11 +997,9 @@ p{ color: rgba(17,17,17,.72); font-weight: 300; }
             <a class="small" href="#/contact">Contact</a>
           </div>
         </div>
-        <div style="margin-top:14px" class="small">
-          Information is for general informational purposes only and does not constitute an offer or solicitation. All engagements subject to compliance review and formal written agreements.
-        </div>
       </div>
     </footer>
+
   </main>
 
   <!-- Project Modal -->
@@ -956,7 +1013,7 @@ p{ color: rgba(17,17,17,.72); font-weight: 300; }
         </div>
         <button class="x" id="mClose" aria-label="Close">Close</button>
       </div>
-      
+
       <div class="modalBody">
         <div class="quad" id="mQuads"></div>
         <div class="rule"></div>
@@ -967,8 +1024,10 @@ p{ color: rgba(17,17,17,.72); font-weight: 300; }
           Specific commercial terms, output metrics, concession structures, supplier details, and financial projections are not disclosed publicly.
         </p>
       </div>
+    </div>
+  </div>
 
-<script>
+  <script>
     const pages = [...document.querySelectorAll("[data-page]")];
     const navLinks = [...document.querySelectorAll(".nav a[data-route]")];
     const modal = document.getElementById("modal");
@@ -998,6 +1057,7 @@ p{ color: rgba(17,17,17,.72); font-weight: 300; }
       const match = hash.match(/^#\/([^?]+)(\?.*)?$/);
       const route = match ? match[1] : "home";
 
+      // normalize search params for capabilities deep-link
       if(match && match[2]){
         const q = match[2].slice(1);
         const url = new URL(window.location.href);
@@ -1015,7 +1075,7 @@ p{ color: rgba(17,17,17,.72); font-weight: 300; }
 
     window.addEventListener("hashchange", () => setActive(parseRoute()));
 
-    // Projects modal
+    // Projects modal profiles
     const projectProfiles = {
       portoviejo: {
         title: "Portoviejo, Ecuador",
