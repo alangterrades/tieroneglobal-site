@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="800" viewBox="0 0 1400 800">
+  <defs>
+    <radialGradient id="rg" cx="30%" cy="20%" r="90%">
+      <stop offset="0" stop-color="#D4AF37" stop-opacity=".24"/>
+      <stop offset=".55" stop-color="#B88917" stop-opacity=".10"/>
+      <stop offset="1" stop-color="#0B0B0F" stop-opacity="1"/>
+    </radialGradient>
+    <linearGradient id="lg" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#111118"/><stop offset="1" stop-color="#0B0B0F"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="14" result="b"/>
+      <feColorMatrix in="b" type="matrix" values="1 0 0 0 0  0 0.85 0 0 0  0 0 0.35 0 0  0 0 0 .8 0" result="c"/>
+      <feMerge><feMergeNode in="c"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="1400" height="800" fill="url(#lg)"/>
+  <rect width="1400" height="800" fill="url(#rg)"/>
+  <g opacity=".9">
+    <circle cx="1100" cy="170" r="160" fill="#D4AF37" opacity=".10"/>
+    <circle cx="1060" cy="210" r="260" fill="#D4AF37" opacity=".06"/>
+    <circle cx="980" cy="260" r="380" fill="#D4AF37" opacity=".035"/>
+  </g>
+  <g filter="url(#glow)" opacity=".85">
+    <path d="M-40 720 C180 560, 340 620, 520 520 C720 410, 920 520, 1120 420 C1280 345, 1460 420, 1480 320 L1480 820 L-40 820 Z"
+          fill="#D4AF37" opacity=".07"/>
+    <path d="M-40 760 C210 610, 380 670, 560 560 C760 440, 930 590, 1140 470 C1290 395, 1450 470, 1480 370"
+          stroke="#D4AF37" stroke-width="2" opacity=".22" fill="none"/>
+  </g>
+  <g transform="translate(96,110)">
+    <text x="0" y="0" font-size="56" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Arial" fill="#F5F5F7" font-weight="700">T1G Energy</text>
+    <text x="0" y="46" font-size="20" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Arial" fill="#A9A9B2">Regulated infrastructure, waste-to-energy, sanitation modernization.</text>
+    <rect x="0" y="78" width="96" height="6" rx="3" fill="#D4AF37" opacity=".9"/>
+  </g>
+</svg>
