@@ -1,83 +1,326 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tier One Global</title>
 
-<html lang="en"><head>
-<title>Tier One Global | Principal Investment &amp; Operating Firm</title>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta content="#0B0B0F" name="theme-color"/>
-<link href="assets/img/favicon.svg" rel="icon" type="image/svg+xml"/>
-<link href="assets/css/styles.css" rel="stylesheet"/>
-<meta content="Tier One Global (T1G) is a privately held principal investment and operating firm structured as a family office." name="description"/>
-</head><body>
-<div class="nav"><div class="container nav-inner">
-<a class="brand" href="index.html"><img alt="Tier One Global" class="brand-logo" src="assets/img/t1g-logo-white.png"/><div class="name"><span>TIER ONE</span><span>GLOBAL</span></div></a>
-<button aria-expanded="false" aria-label="Open menu" class="menu-toggle" id="menuToggle"><span></span></button>
-<div class="nav-links"><a href="index.html">Home</a><a href="leadership.html">Leadership</a><a href="services.html">Services</a><a href="contact.html">Contact</a></div>
-<div class="cta"><a class="btn secondary" href="contact.html">Request an Introduction</a><a class="btn" href="services.html">Explore Services</a></div>
-</div></div>
-<section class="hero"><div class="container hero-grid">
+<style>
+:root{
+  --black:#0A0A0A;
+  --charcoal:#111111;
+  --gold:#BFA14A;
+  --text:#EDEDED;
+  --muted:#B5B5B5;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  background:var(--black);
+  color:var(--text);
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  line-height:1.6;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+.container{
+  width:90%;
+  max-width:1200px;
+  margin:auto;
+}
+
+/* NAVIGATION */
+
+nav{
+  background:#000;
+  padding:22px 0;
+  border-bottom:1px solid #1c1c1c;
+}
+
+.nav-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo img{
+  height:48px;
+}
+
+.nav-links{
+  display:flex;
+  gap:40px;
+  font-size:14px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+.nav-links a{
+  color:var(--muted);
+}
+
+.nav-links a:hover{
+  color:var(--gold);
+}
+
+.nav-actions{
+  display:flex;
+  gap:16px;
+}
+
+.btn{
+  padding:10px 18px;
+  border:1px solid var(--gold);
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+}
+
+.btn.gold{
+  background:var(--gold);
+  color:#000;
+}
+
+/* HERO */
+
+.hero{
+  padding:90px 0 120px 0;
+}
+
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.1fr 1fr;
+  gap:70px;
+  align-items:center;
+}
+
+.hero h1{
+  font-size:48px;
+  font-weight:600;
+  margin-bottom:24px;
+}
+
+.hero p{
+  color:var(--muted);
+  margin-bottom:28px;
+  max-width:550px;
+}
+
+.hero-buttons{
+  display:flex;
+  gap:18px;
+  margin-top:20px;
+}
+
+/* HERO ROTATING IMAGES */
+
+.hero-media{
+  position:relative;
+  height:420px;
+  overflow:hidden;
+  border-radius:6px;
+}
+
+.hero-slide{
+  position:absolute;
+  inset:0;
+  background-size:cover;
+  background-position:center;
+  filter:saturate(.75) contrast(1.05) brightness(.85);
+  opacity:0;
+  transition:opacity 2s ease;
+}
+
+.hero-slide.active{
+  opacity:1;
+}
+
+.hero-overlay{
+  position:absolute;
+  inset:0;
+  background:
+  linear-gradient(90deg,rgba(0,0,0,.75),rgba(0,0,0,.3));
+}
+
+/* SECTION */
+
+.section{
+  padding:90px 0;
+  border-top:1px solid #1c1c1c;
+}
+
+.section h2{
+  font-size:28px;
+  margin-bottom:24px;
+}
+
+.section p{
+  color:var(--muted);
+  max-width:750px;
+}
+
+.services-grid{
+  margin-top:60px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:30px;
+}
+
+.service-card{
+  border:1px solid #1c1c1c;
+  padding:30px;
+}
+
+.service-card h3{
+  font-size:16px;
+  margin-bottom:14px;
+}
+
+.service-card p{
+  font-size:14px;
+  color:var(--muted);
+}
+
+/* FOOTER */
+
+footer{
+  border-top:1px solid #1c1c1c;
+  padding:60px 0;
+  text-align:center;
+  font-size:13px;
+  color:var(--muted);
+}
+
+footer img{
+  height:38px;
+  margin-bottom:18px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1000px){
+  .hero-grid{
+    grid-template-columns:1fr;
+  }
+  .services-grid{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media(max-width:600px){
+  .services-grid{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<div class="container nav-inner">
+  <div class="logo">
+    <img src="assets/img/t1g-logo-white.png" alt="Tier One Global">
+  </div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="leadership.html">Leadership</a>
+    <a href="services.html">Services</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <div class="nav-actions">
+    <a href="contact.html" class="btn">Request Introduction</a>
+    <a href="services.html" class="btn gold">Explore Services</a>
+  </div>
+</div>
+</nav>
+
+<section class="hero">
+<div class="container hero-grid">
+
 <div>
-<div class="kicker"><span class="dot"></span> Privately held • Principal-led • Governance-first</div>
 <h1>Tier One Global</h1>
-<div class="subhead">Tier One Global (T1G) is a privately held principal investment and operating firm structured as a family office, overseeing controlled subsidiaries engaged in real assets and regulated operating environments within select jurisdictions.<br/><br/>We participate where operational execution, jurisdictional awareness, and governance discipline are essential—most notably across precious metals and mining, and regulated infrastructure and environmental operations. T1G acts solely as a principal. We do not solicit retail capital and do not engage in public fundraising.</div>
-<div class="hero-actions"><a class="btn" href="contact.html">Request an Introduction</a><a class="btn secondary" href="leadership.html">Who We Are</a></div>
-<div class="trust"><div class="pill">Family-office structured</div><div class="pill">Principal participation only</div><div class="pill">Controlled jurisdictions</div><div class="pill">Chain-of-custody integrity</div></div>
+<p>
+Tier One Global (T1G) is a privately held principal investment and operating firm structured as a family office, overseeing controlled subsidiaries engaged in real assets and regulated operating environments within select jurisdictions.
+</p>
+<p>
+We participate where operational execution, jurisdictional awareness, and governance discipline are essential — most notably across precious metals and mining, regulated infrastructure, and security-aligned environments.
+</p>
+<div class="hero-buttons">
+  <a href="contact.html" class="btn gold">Request Introduction</a>
+  <a href="leadership.html" class="btn">Who We Are</a>
 </div>
-<div class="hero-visual panel">
-<img alt="" class="bg" src="assets/img/hero.svg"/><div class="overlay"></div>
-<canvas aria-hidden="true" id="heroParticles"></canvas>
-<img alt="" aria-hidden="true" class="spark" src="assets/img/spark.svg"/>
 </div>
-</div></section>
-<section class="section"><div class="container">
+
+<div class="hero-media">
+  <div class="hero-slide active" style="background-image:url('assets/img/hero-mining.jpg')"></div>
+  <div class="hero-slide" style="background-image:url('assets/img/hero-infrastructure.jpg')"></div>
+  <div class="hero-slide" style="background-image:url('assets/img/hero-skyline.jpg')"></div>
+  <div class="hero-overlay"></div>
+</div>
+
+</div>
+</section>
+
+<section class="section">
+<div class="container">
 <h2>Integrated Operating Model</h2>
-<p class="lead">T1G’s subsidiaries are designed to operate independently, but they are structured to integrate when required. Mining and infrastructure are not executed in isolation—security, logistics, governance, and regulatory sequencing are often inseparable from performance.</p>
-<div class="grid-2">
-<div class="callout"><strong>Operational integration</strong><div class="small" style="margin-top:8px;">Security, logistics, and jurisdictional execution support mining and infrastructure activities where continuity and loss prevention matter.</div></div>
-<div class="callout"><strong>Execution discipline</strong><div class="small" style="margin-top:8px;">Transactions and operations are sequenced with documented controls aligned to jurisdictional requirements and governance standards.</div></div>
+<p>
+T1G’s subsidiaries operate independently yet integrate when required. Mining and infrastructure execution are not isolated from security, logistics, governance, and regulatory sequencing. Disciplined execution and structured oversight define our approach.
+</p>
+
+<div class="services-grid">
+
+<div class="service-card">
+<h3>T1G Minerals</h3>
+<p>Principal participation in producing assets, structured doré and concentrate transactions, and disciplined export coordination.</p>
 </div>
-</div></section>
-<section class="section"><div class="container">
-<h2>Services</h2><p class="lead">Controlled subsidiaries, aligned to principal participation and operational accountability.</p>
-<div class="cards">
-<div class="card"><div class="top"><img alt="T1G Minerals" src="assets/img/icon-minerals.svg"/><div><h3>T1G Minerals</h3><div class="small">Precious metals &amp; strategic minerals</div></div></div>
-<p>Producing asset participation, structured doré and concentrate transactions, documented offtake and export coordination, and selective refining capability development.</p>
-<a class="more" href="services.html#minerals">View details →</a></div>
-<div class="card"><div class="top"><img alt="SecRISK" src="assets/img/icon-security.svg"/><div><h3>T1G Security, Logistics &amp; Risk Management (SecRISK)</h3><div class="small">Operational continuity &amp; mobility</div></div></div>
-<p>Integrated support for complex environments: executive protection, secure mobility, aviation support, site security integration, and structured jurisdictional risk assessment.</p>
-<a class="more" href="services.html#security">View details →</a></div>
-<div class="card"><div class="top"><img alt="T1G Energy" src="assets/img/icon-energy.svg"/><div><h3>T1G Energy</h3><div class="small">Infrastructure &amp; environmental operations</div></div></div>
-<p>Regulated sanitation and waste-to-energy initiatives, landfill oversight, modernization of waste systems, and integration of advanced processing and energy-generation technologies.</p>
-<a class="more" href="services.html#energy">View details →</a></div>
-<div class="card"><div class="top"><img alt="T1G Capital" src="assets/img/icon-capital.svg"/><div><h3>T1G Capital</h3><div class="small">Selective principal participation</div></div></div>
-<p>Principal-led participation aligned to asset-level mandates, including transaction structuring, modeling, and institutional coordination within regulated markets when appropriate.</p>
-<a class="more" href="services.html#capital">View details →</a></div>
+
+<div class="service-card">
+<h3>T1G Security, Logistics & Risk Management (SecRISK)</h3>
+<p>Operational continuity support across complex jurisdictions, including mobility, site integration, and structured risk assessment.</p>
 </div>
-</div></section>
-<section class="section"><div class="container split">
-<div class="panel"><div class="head"><h3>Governance &amp; Controls</h3><p>Structured review of jurisdictional exposure, counterparty assessment, documentation controls, regulatory alignment, and risk sequencing consistent with disciplined principal participation.</p></div>
-<div class="art"><img alt="Governance" src="assets/img/leadership.svg"/></div></div>
-<div class="panel">
-<div class="art"><img alt="Participation" src="assets/img/capital.svg"/></div></div>
-</div></section>
-<section class="section"><div class="container">
-<div class="callout" style="display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;">
-<div><strong>Ready to explore alignment?</strong><div class="small" style="margin-top:6px;">Request an introduction to discuss mandate fit and operating alignment.</div></div>
-<div style="display:flex;gap:10px;flex-wrap:wrap;"><a class="btn" href="contact.html">Contact</a><a class="btn secondary" href="services.html">Explore Services</a></div>
+
+<div class="service-card">
+<h3>T1G Energy</h3>
+<p>Regulated infrastructure participation across sanitation and energy-generation initiatives within durable compliance frameworks.</p>
 </div>
-</div></section>
-<div class="footer"><div class="container footer-grid">
-<div>
-<img alt="Tier One Global" src="assets/img/t1g-logo-white.png" style="width:180px;height:auto;opacity:.95;"/>
-<div class="small" style="margin-top:10px;max-width:70ch;">Tier One Global (T1G) is a privately held principal investment and operating firm structured as a family office. We act solely as principal and do not solicit retail capital or engage in public fundraising.</div>
-<div class="legal"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="disclaimer.html">Disclaimer</a></div>
-<div class="small" style="margin-top:10px;">© <span id="year"></span> Tier One Global. All rights reserved.</div>
+
+<div class="service-card">
+<h3>T1G Capital</h3>
+<p>Principal-led capital participation aligned with operational mandates and structured transaction execution.</p>
 </div>
-<div>
-<div class="small" style="margin-bottom:10px;">Discretion • Governance • Execution</div>
-<div class="callout"><strong>Participation</strong><br/><div class="small" style="margin-top:6px;">Participation is initiated through direct referral or institutional introduction. The website is informational and does not constitute an offer to sell or a solicitation of an offer to buy any securities or financial products.</div></div>
+
 </div>
-</div></div>
-<script>document.getElementById('year').textContent=new Date().getFullYear();</script>
-<script defer="" src="assets/js/main.js"></script>
-</body></html>
+</div>
+</section>
+
+<footer>
+<div class="container">
+<img src="assets/img/t1g-logo-white.png" alt="Tier One Global">
+<p>© 2026 Tier One Global. All rights reserved.</p>
+</div>
+</footer>
+
+<script>
+const slides = document.querySelectorAll('.hero-slide');
+let index = 0;
+
+setInterval(()=>{
+  slides[index].classList.remove('active');
+  index = (index + 1) % slides.length;
+  slides[index].classList.add('active');
+},9000);
+</script>
+
+</body>
+</html>
